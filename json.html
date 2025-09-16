@@ -1,0 +1,211 @@
+<!-- <html>
+    <head>
+        <title>Geolocation & Canvas</title>
+    </head>
+    <body>
+       <script>
+        let student1={name:"bhadra",age:20}
+        let student2={name:"rusu", age:21}
+        var tboolean=true;
+        var tnull=null;
+        var tundefined=undefined;
+        var number=10;
+        var array=[1,2,3,4,5];
+        console.log(student1);
+        console.log(student2);
+        console.log(tboolean);
+        console.log(tnull);
+        console.log(tundefined);
+        console.log(number);
+        console.log(array);
+       </script>
+    </body>
+</html> -->
+
+<!-- <html>
+    <body>
+        Enter First Name : <input type="text" id="firstname"><br>
+        Display First Name : <input type="text" id="dispfname"><br>
+        <div id="id1">ADD ME</div><br>
+        <div id="id2">VIEW ME</div><br>
+        <script>
+            document.getElementById('id1').addEventListener("click", addtostorage);
+            document.getElementById('id2').addEventListener("click", viewstorage);
+            function addtostorage(){
+                let tempval=document.getElementById("firstname").value;
+                console.log('clicked' +tempval);
+                localStorage.setItem('locvar1',tempval);
+            }
+            function viewstorage(){
+                disptempval=localStorage.getItem('locvar1');
+                console.log('clicked' +disptempval);
+                document.getElementById("dispfname").value=disptempval;            
+            }
+        </script>
+    </body>
+</html> -->
+
+
+<!-- <html>
+    <body>
+        Enter First Name : <input type="text" id="firstname"><br>
+        Enter Last Name : <input type="text" id="lastname"><br>
+        Display First Name : <input type="text" id="dispfname"><br>
+        Display Last Name : <input type="text" id="displname"><br>
+        <div id="id1">ADD ME</div><br>
+        <div id="id2">VIEW ME</div><br>
+        <script>
+            document.getElementById('id1').addEventListener("click", addtostorage);
+            document.getElementById('id2').addEventListener("click", viewstorage);
+            function addtostorage(){
+                let tempfirst=document.getElementById("firstname").value;
+                let templast=document.getElementById("lastname").value;
+                console.log('clicked' +tempfirst+templast);
+                localStorage.setItem('locvar1',tempfirst);
+                localStorage.setItem('locvar2',templast);
+            }
+            function viewstorage(){
+                disptempfirst=localStorage.getItem('locvar1');
+                disptemplast=localStorage.getItem('locvar2');
+                console.log('clicked' +disptempfirst+disptemplast);
+                document.getElementById("dispfname").value=disptempfirst;  
+                document.getElementById("displname").value=disptemplast;          
+            }
+        </script>
+    </body>
+</html> -->
+
+<!-- <html>
+    <body>
+        Enter First Name : <input type="text" id="firstname"><br>
+        Enter Last Name : <input type="text" id="lastname"><br>
+        Display First Name : <input type="text" id="dispfname"><br>
+        Display Last Name : <input type="text" id="displname"><br>
+        <div id="id1">ADD ME</div><br>
+        <div id="id2">VIEW ME</div><br>
+        <script>
+            document.getElementById('id1').addEventListener("click", addtostorage);
+            document.getElementById('id2').addEventListener("click", viewstorage);
+            function addtostorage(){
+                let tempfirst=document.getElementById("firstname").value;
+                let templast=document.getElementById("lastname").value;
+                console.log('clicked' +tempfirst+templast);
+                var employee={"fname":tempfirst,"lname":templast}
+                localStorage.setItem("locvar1",employee);
+            }
+            function viewstorage(){
+                var employee=localStorage.getItem(employee)
+                console.log('clicked' +employee);
+                document.getElementById("dispfname").value=employee;  
+                document.getElementById("displname").value=employee;          
+            }
+        </script>
+    </body>
+</html> -->
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="button">GET JSON</button>
+    <div id="viewresult"></div>
+    <script>
+      const addbutton=document.getElementById("button").addEventListener("click",addjson);
+      const output=document.querySelector("#viewresult");
+      function addjson()
+      {
+        console.log("clicked");
+        output.innerHTML="worked";
+        const url="data.json";
+        fetch(url)
+                .then(function(response) {
+                    console.log(response.status);
+                    return response.json(); // directly parse JSON
+                })
+                .then(function(data) {
+                    console.log(data); // full JSON object
+                    output.innerHTML = `First name: ${data.name} Age: ${data.age}`;
+                })
+                .catch(function(error) {
+                    console.error("Error fetching JSON:", error);
+                    output.innerHTML = "Error fetching data.";
+                });
+      }
+    </script>
+</body>
+</html> -->
+
+
+
+<!-- <html>
+    <body>
+        <script>
+            function hello(){
+                console.log("hello");
+            }
+            function goodbye(){
+                console.log("goodbye");
+            }
+            hello();
+            setTimeout(hello,3000);
+            goodbye();
+        </script>
+    </body>
+</html> -->
+
+<!-- this can be wriiten using callback. it gives power for another fun goodbye to access hello fun -->
+
+<!-- <html>
+    <body>
+        <script>
+            function hello(){
+                console.log("hello");
+            }
+            function goodbye(callback){
+                console.log("goodbye");
+                callback();
+            }
+            goodbye(hello);
+        </script>
+    </body>
+</html> -->
+
+<!-- <html>
+    <body>
+        <script>
+            console.log("hai")
+            getdata()
+            console.log("bye")
+            async function getdata()
+            {
+                const data= await fetch("https://randomuser.me/api/portraits/men/90.jpg")
+                console.log(data)
+            }
+        </script>
+    </body>
+</html> -->
+
+
+<html>
+    <body>
+        <script>
+            function myfunction()
+            {
+                return new Promise((resolve, reject) => 
+            {
+                    resolve(12);
+            });
+            }
+            let result=myfunction();
+            console.log(result);
+            result.then(data =>{
+                console.log(data)
+            })
+        </script>
+    </body>
+</html>

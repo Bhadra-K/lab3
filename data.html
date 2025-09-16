@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>XML FILE ACCESSING INTERNALLY</title>
+    </head>
+    <body>
+        <h1>XML FILE ACCESSING INTERNALLY</h1>
+        <div id="output"></div>
+        <script>
+        const xmlString= `
+        <person>
+            <name>Bhadra</name>
+            <age>20</age>
+            <gender>female</gender>
+        </person>`;
+        const parser=new DOMParser();
+        const xmlDoc=parser.parseFromString(xmlString,"text/xml");
+        const  name=xmlDoc.getElementsByTagName("name")[0].textContent;
+        const  age=xmlDoc.getElementsByTagName("age")[0].textContent;
+        const  gender=xmlDoc.getElementsByTagName("gender")[0].textContent;
+        document.getElementById("output").innerHTML=`
+        Name:${name}<br>
+        Age:${age}<br>
+        Gender:${gender}
+        `;
+        </script>
+    </body>
+</html>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="books.xsd">
+<book>
+<title>Harry Potter</title>
+<author>JKRowling</author>
+<year>2005</year>
+<price>680.50</price>
+</book>
+</library>

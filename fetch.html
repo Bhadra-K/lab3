@@ -1,0 +1,132 @@
+<!-- <!DOCTYPE html>
+<html>
+    <head>
+        <title>LETTER FETCH</title>
+  </style>
+    </head>
+    <body>
+        <h1>Fetched Message</h1>
+        <div id="noteContent">Loading...</div>
+        <script>
+            fetch('msg.xml')
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error("Network response was not ok");
+            }
+            return response.text();
+            })
+            .then((xmlString) => {
+            const parser=new DOMParser();
+            const xmlDoc=parser.parseFromString(xmlString,"text/xml");
+            const bodyElement=xmlDoc.getElementsByTagName("body")[0];
+            if(bodyElement){
+                document.getElementById("noteContent").textContent=bodyElement.textContent;
+            }
+            else{
+                document.getElementById("noteContent").textContent="No <body> element found";
+            }
+            })
+            // .then(xmlText => {
+            //     document.getElementById('noteContent').textContent = xmlText;
+            // }) #displays raw xml file
+            .catch(error =>{
+                console.error("Error fetching XML:",error);
+            document.getElementById("noteContent").textContent = "Error loading message";
+            });
+        </script>
+    </body>
+</html> -->
+
+
+<!-- <!DOCTYPE html>
+<html>
+<head>
+  <title>XML Reader</title>
+</head>
+<body>
+<h2>LETTER</h2>
+<div id="output"></div>
+<script>
+  fetch('msg.xml') 
+    .then(response => {
+      if (!response.ok) {
+        throw new Error("HTTP error " + response.status);
+      }
+      return response.text();
+    })
+    .then(str => {
+      const parser = new DOMParser();
+      const xml = parser.parseFromString(str, "application/xml");
+      const tags = xml.documentElement.children;
+      let output = "";
+      for (let i = 0; i < tags.length; i++) {
+        const tagName = tags[i].tagName;
+        const tagValue = tags[i].textContent;
+        output += `<p><strong>${tagName}:</strong> ${tagValue}</p>`;
+      }
+      document.getElementById("output").innerHTML = output;
+    })
+    .catch(error => {
+      document.getElementById("output").textContent = "Failed to load XML: " + error.message;
+      console.error("Fetch error:", error);
+    });
+</script>
+</body>
+</html>
+ -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Load XML Example</title>
+</head>
+<body>
+<h2>XML Content:</h2>
+<div id="result"></div>
+<script>
+  fetch('msg.xml')
+    // .then(response => {
+    //   if (!response.ok) throw new Error('HTTP error ' + response.status);
+    //   return response.text();
+    // })
+    .then(str => {
+      const parser = new DOMParser();
+      const xmlDoc = parser.parseFromString(str, "text/xml");
+      const headingElem = xmlDoc.getElementsByTagName("to")[0];
+      if (!headingElem) {
+        document.getElementById('result').textContent = "No <heading> tag found in XML.";
+        return;  
+      }
+const heading = headingElem.textContent;
+document.getElementById('result').innerHTML = `<p>Heading: ${to}</p>`;
+})
+    .catch(error => {
+      document.getElementById('result').textContent = "Error loading XML.";
+      console.log("XML Load Error:",error);
+    });
+</script>
+</body>
+</html>
+
+<!-- 
+<html>
+  <body>
+    <script>
+        fetch('msg.xml')
+        .then(response => response.text())
+        .then(str => {
+      // Parse the XML
+        let xmlDoc = xhr.responseXML; // gets the whole XML tree
+      // find all <name> tags inside the XML
+        let names = xmlDoc.getElementsByTagName("name");
+      // get the text inside the first <name> tag
+        console.log(names[0].textContent); // outputs "Ali"
+      })
+      .catch(error => {
+      document.getElementById('result').textContent = "Error loading XML.";
+      console.error(error);
+      });
+    </script>
+  </body>
+</html>
+ -->

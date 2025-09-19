@@ -1,0 +1,73 @@
+body, html {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;     
+}
+
+.app-container {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  max-width: 900px;
+  padding: 20px;
+  background-color: #fff8f0;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+
+.header {
+  text-align: center;
+  color: #d2691e;
+}
+
+.flex-container {
+  display: flex;
+  gap: 30px;
+}
+
+.recipe-list {
+  flex: 1;
+  background-color: #ffe6cc;
+  border-radius: 8px;
+  padding: 20px;
+  height: 400px;
+  overflow-y: auto;
+}
+
+.recipe-item {
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  border-radius: 6px;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: background-color 0.3s;
+}
+
+.recipe-item:hover {
+  background-color: #ffd9b3;
+}
+
+.recipe-details {
+  flex: 2;
+  background-color: #fff3e0;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.ingredient-list {
+  margin-top: 10px;
+}
+
+.instructions-list {
+  margin-top: 20px;
+  padding-left: 20px;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #4b4b4b;
+}
+
+.instructions-list li {
+  margin-bottom: 10px;
+}

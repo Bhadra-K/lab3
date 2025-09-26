@@ -61,7 +61,28 @@
 // }
 
 // #4.header,content,footer
-import Page from "./Page"
-export default function App(){
-  return<Page/>;
-}
+// import Page from "./Page"
+// export default function App(){
+//   return<Page/>;
+// }
+
+// #5.Button
+// import Button from "./button";
+// export default function App()
+// {
+//   return (
+//   <Button/>
+//   );
+// }
+
+// #6.Counter
+// import Counter from "./counter";
+// export default function App(){
+//    return <Counter/>;
+// }
+// #7. useState eg count
+// import Usestate from "./Usestate";
+// export default function App(){
+//    return <Usestate/>
+// }
+

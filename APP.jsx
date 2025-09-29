@@ -87,3 +87,20 @@
 //    return <Usestate/>
 // }
 
+// #8. userefer
+// import Userefer from "./Userefer"
+// export default function App(){
+// return <Userefer/>
+// }
+
+// #9. colorchanger
+// import Colorchanger from "./Colorchanger"
+// export default function App(){
+//     return<Colorchanger/>
+// }
+
+// #10.toggletheme
+// import Context from "./Context"
+// export default function App(){
+//     return <Context/>
+// }

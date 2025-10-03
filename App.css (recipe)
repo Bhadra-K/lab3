@@ -1,0 +1,122 @@
+/* App.css - Cottagecore Food Bento Box Layout */
+
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&family=Zeyada&display=swap');
+
+:root {
+  --bg-color: #fffaf0;
+  --accent-color: #d4a373;
+  --card-bg: #fef6e4;
+  --font-color: #4e342e;
+  --border-color: #e4caa1;
+}
+
+body, html, #root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Quicksand', sans-serif;
+  background: var(--bg-color) url('https://www.transparenttextures.com/patterns/paper-fibers.png'); /* adds soft texture */
+  color: var(--font-color);
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+h1 {
+  font-family: 'Zeyada', cursive;
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  color: var(--accent-color);
+  text-shadow: 1px 1px #fff5e1;
+}
+
+form {
+  margin-bottom: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+input[type="text"] {
+  padding: 0.6rem 1rem;
+  border-radius: 25px;
+  border: 2px solid var(--border-color);
+  background: #fffefc;
+  font-size: 1rem;
+  width: 220px;
+}
+
+button {
+  background-color: var(--accent-color);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+button:hover {
+  background-color: #bc6c25;
+}
+
+.recipe-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 1100px;
+}
+
+/* RecipeCard.css - Bento Box Card */
+
+.recipe-card {
+  background-color: var(--card-bg);
+  border: 2px dashed var(--border-color);
+  border-radius: 18px;
+  padding: 1rem;
+  box-shadow: 2px 2px 6px rgba(210, 180, 140, 0.2);
+  transition: transform 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.recipe-card:hover {
+  transform: scale(1.02);
+}
+
+.recipe-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 14px;
+  margin-bottom: 0.75rem;
+  object-fit: cover;
+  border: 1px solid #e5d3b3;
+}
+
+.recipe-card h3 {
+  font-size: 1.1rem;
+  margin: 0.3rem 0;
+  color: #7f5539;
+}
+
+.recipe-card p {
+  font-size: 0.9rem;
+  color: #8d6e63;
+}
+
+.recipe-card a {
+  text-decoration: none;
+  color: #bc6c25;
+  font-weight: bold;
+  margin-top: 0.5rem;
+}

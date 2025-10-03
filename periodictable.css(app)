@@ -1,0 +1,125 @@
+* {
+  box-sizing: border-box;
+  font-family: "Nunito", sans-serif;
+}
+
+body, html, #root {
+  height: 100%;
+  margin: 0;
+  background: #f9f5ef;
+  color: #5c4a3d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.app-container {
+  max-width: 1200px;
+  width: 100%;
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 20px;
+  font-family: "Indie Flower", cursive;
+  font-size: 3rem;
+  color: #a16c4a;
+}
+
+/* Periodic grid */
+.periodic-grid {
+  display: grid;
+  grid-template-columns: repeat(18, 60px);
+  grid-auto-rows: 70px;
+  gap: 5px;
+  justify-content: center;
+  user-select: none;
+}
+
+.element-cell {
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgb(0 0 0 / 0.1);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 6px;
+  transition: transform 0.15s ease;
+}
+
+.element-cell:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 15px rgb(0 0 0 / 0.2);
+}
+
+.element-cell.empty {
+  background-color: transparent;
+  box-shadow: none;
+  cursor: default;
+}
+
+/* Number and symbol */
+.element-number {
+  font-size: 0.8rem;
+  opacity: 0.8;
+}
+
+.element-symbol {
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+/* Modal overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(92, 74, 61, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Modal content */
+.modal-content {
+  background-color: #fffaf0;
+  border-radius: 16px;
+  box-shadow: 0 12px 30px rgb(150 110 70 / 0.3);
+  padding: 2rem;
+  width: 320px;
+  position: relative;
+  color: #5c4a3d;
+  font-family: 'Nunito', sans-serif;
+  text-align: left;
+}
+
+/* Close button */
+.modal-close {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: #a16c4a;
+  font-weight: bold;
+}
+
+.modal-close:hover {
+  color: #7a4e28;
+}
+
+.modal-content h2 {
+  margin-top: 0;
+  font-family: 'Indie Flower', cursive;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+

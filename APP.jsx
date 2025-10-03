@@ -104,3 +104,16 @@
 // export default function App(){
 //     return <Context/>
 // }
+
+
+// #passing and destructuring props
+// import Welcome from "./Props";
+// function App(){
+//   return(
+//     <div>
+//   <Welcome name="Alice" age={30}/>
+//   <Welcome name="Bob" age={30}/>
+//   </div>
+//   );
+// }
+// export default App;

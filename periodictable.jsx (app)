@@ -1,0 +1,168 @@
+import React, { useState } from "react";
+import "./App.css";
+
+// Minimal periodic table data for demo (you can add more)
+const elements = [
+  {
+    number: 1,
+    symbol: "H",
+    name: "Hydrogen",
+    atomic_mass: 1.008,
+    category: "diatomic nonmetal",
+    xpos: 1,
+    ypos: 1,
+    summary:
+      "Hydrogen is the lightest element and the most abundant chemical substance in the universe.",
+  },
+  {
+    number: 2,
+    symbol: "He",
+    name: "Helium",
+    atomic_mass: 4.0026,
+    category: "noble gas",
+    xpos: 18,
+    ypos: 1,
+    summary: "Helium is a colorless, odorless, tasteless inert gas, used in balloons and cryogenics.",
+  },
+  {
+    number: 3,
+    symbol: "Li",
+    name: "Lithium",
+    atomic_mass: 6.94,
+    category: "alkali metal",
+    xpos: 1,
+    ypos: 2,
+    summary: "Lithium is a soft, silvery-white metal used in batteries and mental health medications.",
+  },
+  {
+    number: 4,
+    symbol: "Be",
+    name: "Beryllium",
+    atomic_mass: 9.0122,
+    category: "alkaline earth metal",
+    xpos: 2,
+    ypos: 2,
+    summary: "Beryllium is a hard, gray metal used as an alloying agent in aerospace materials.",
+  },
+  // ... you can add all 118 elements here or load from a JSON file
+  {
+    number: 6,
+    symbol: "C",
+    name: "Carbon",
+    atomic_mass: 12.011,
+    category: "polyatomic nonmetal",
+    xpos: 14,
+    ypos: 2,
+    summary:
+      "Carbon is a fundamental element for life, forming the basis of organic chemistry.",
+  },
+  {
+    number: 8,
+    symbol: "O",
+    name: "Oxygen",
+    atomic_mass: 15.999,
+    category: "diatomic nonmetal",
+    xpos: 16,
+    ypos: 2,
+    summary:
+      "Oxygen is essential for respiration and combustion; it makes up around 21% of Earth's atmosphere.",
+  },
+  {
+    number: 10,
+    symbol: "Ne",
+    name: "Neon",
+    atomic_mass: 20.180,
+    category: "noble gas",
+    xpos: 18,
+    ypos: 2,
+    summary:
+      "Neon is a noble gas used in neon signs and lighting due to its bright glow.",
+  },
+];
+
+// Simple color map for categories
+const categoryColors = {
+  "alkali metal": "#f08030",
+  "alkaline earth metal": "#f8c030",
+  "transition metal": "#f8f878",
+  "post-transition metal": "#b8b8d0",
+  metalloid: "#f8f8b8",
+  "polyatomic nonmetal": "#6890f0",
+  "diatomic nonmetal": "#6890f0",
+  "noble gas": "#78c850",
+  lanthanide: "#f8d878",
+  actinide: "#f8b8b8",
+  unknown: "#a8a878",
+};
+
+function Modal({ element, onClose }) {
+  if (!element) return null;
+
+  return (
+    <div className="modal-overlay" onClick={onClose}>
+      <div
+        className="modal-content"
+        onClick={(e) => e.stopPropagation()} // prevent modal close on inner click
+      >
+        <button className="modal-close" onClick={onClose}>
+          &times;
+        </button>
+        <h2>
+          {element.name} ({element.symbol})
+        </h2>
+        <p><strong>Atomic Number:</strong> {element.number}</p>
+        <p><strong>Atomic Mass:</strong> {element.atomic_mass}</p>
+        <p><strong>Category:</strong> {element.category}</p>
+        <p>{element.summary}</p>
+      </div>
+    </div>
+  );
+}
+
+export default function App() {
+  const rows = 7;
+  const cols = 18;
+
+  // Create empty grid
+  const grid = Array(rows)
+    .fill(null)
+    .map(() => Array(cols).fill(null));
+
+  // Place elements in grid by xpos (col) and ypos (row)
+  elements.forEach((el) => {
+    grid[el.ypos - 1][el.xpos - 1] = el;
+  });
+
+  const [selected, setSelected] = useState(null);
+
+  return (
+    <div className="app-container">
+      <h1>React Periodic Table</h1>
+      <div className="periodic-grid">
+        {grid.flat().map((el, i) => {
+          if (!el) {
+            return <div key={i} className="element-cell empty"></div>;
+          }
+
+          const color = categoryColors[el.category] || categoryColors.unknown;
+
+          return (
+            <div
+              key={i}
+              className="element-cell"
+              style={{ backgroundColor: color, cursor: "pointer" }}
+              onClick={() => setSelected(el)}
+              title={`${el.name} (${el.symbol})`}
+            >
+              <div className="element-number">{el.number}</div>
+              <div className="element-symbol">{el.symbol}</div>
+            </div>
+          );
+        })}
+      </div>
+
+      {/* Modal for details */}
+      <Modal element={selected} onClose={() => setSelected(null)} />
+    </div>
+  );
+}
